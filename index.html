@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<title>Sample Turk Page</title>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./experimentr.js"></script>
+
+<link rel="stylesheet" type="text/css" href="main.css"/>
+
+<body>
+	<div id="testdiv">some test content here</div>
+</body>
+<span id="tester"></span>
+
+
+
+<script>
+var experiment = experimentr.create();
+experiment.attach("#testdiv");
+experiment.setSequence('modules/module1', 'modules/module2/', 'modules/modulefinal/');
+experiment.setTracking({mouseData:true, experimentTime:true, moduleTime:true});
+// experiment.setVerboseLevel('verbose');
+// experiment.setMouseTracking({both: [1, 2], interval:10});
+experiment.setMouseTracking({clicks: [0, 1, 2], interval:10});
+experiment.addClickListeners('a'); 
+
+// experiment.attachScript('modules/module1', function(){alert();});
+
+experiment.start();
+
+// experiment.setModule('modules/module2'); //(if you want to debug a certain page)
+
+
+</script>
+
+ 
